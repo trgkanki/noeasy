@@ -15,22 +15,25 @@
 
 # -*- coding: utf-8 -*-
 #
-# addon_template v20.5.4i8
+# noeasy v20.5.4i8
 #
 # Copyright: trgk (phu54321@naver.com)
 # License: GNU AGPL, version 3 or later;
 # See http://www.gnu.org/licenses/agpl.html
 
-from aqt.editor import Editor
+from aqt.reviewer import Reviewer
 from anki.hooks import wrap
-from aqt.utils import askUser
+from aqt.utils import tooltip
 
 from .utils import openChangelog
 from .utils import uuid  # duplicate UUID checked here
 
 
-def onLoadNote(self, focusTo=None):
-    pass
+def noEasy(self, *, _old):
+    if self.card.timeTaken() < 1500:
+        tooltip('Think before pressing space')
+        return
+    return _old(self)
 
 
-Editor.loadNote = wrap(Editor.loadNote, onLoadNote, "after")
+Reviewer._showAnswer = wrap(Reviewer._showAnswer, noEasy, "around")
