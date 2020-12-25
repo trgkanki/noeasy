@@ -15,7 +15,7 @@
 
 # -*- coding: utf-8 -*-
 #
-# noeasy v20.8.24i75
+# noeasy v20.12.25i94
 #
 # Copyright: trgk (phu54321@naver.com)
 # License: GNU AGPL, version 3 or later;

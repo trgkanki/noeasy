@@ -1,6 +1,6 @@
 {
   "name": "noeasy",
-  "version": "20.8.24i75",
+  "version": "20.12.25i94",
   "description": "template for trgkanki's addon",
   "scripts": {
     "postinstall": "python3 -m pip install -r requirements.txt",
