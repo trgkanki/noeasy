@@ -27,11 +27,12 @@ from aqt.utils import tooltip
 
 from .utils import openChangelog
 from .utils import uuid  # duplicate UUID checked here
+from .utils import debugLog  # debug log registered here
 
 
 def noEasy(self, *, _old):
     if self.card.timeTaken() < 1500:
-        tooltip('Think before pressing space')
+        tooltip("Think before pressing space")
         return
     return _old(self)
 

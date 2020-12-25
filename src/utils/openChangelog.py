@@ -14,16 +14,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from aqt import mw
-from aqt.utils import askUser
-from aqt.utils import openLink
-from aqt.qt import QDesktopServices, QUrl
-from anki.utils import noBundledLibs
 
 import os
 
 from .configrw import getCurrentAddonName
 from .resource import readResource, getResourcePath
-from aqt.utils import showText
+from .MiniBrowser import MiniBrowser
 
 
 def getCurrentAddonVersion():
@@ -41,8 +37,8 @@ def showChangelogOnUpdate():
 
         changelogPath = getResourcePath("CHANGELOG.html")
         if os.path.exists(changelogPath):
-            with noBundledLibs():
-                showText(readResource("CHANGELOG.html"), type="html", title="Changelog")
+            dlg = MiniBrowser(None, "CHANGELOG.html")
+            dlg.exec()
 
 
 showChangelogOnUpdate()

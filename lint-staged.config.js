@@ -13,13 +13,12 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-const exec = require('child_process').exec
-
-exports.getStdout = function (command) {
-  return new Promise((resolve, reject) => {
-    exec(command, (err, stdout) => {
-      if (err) return reject(err)
-      return resolve(stdout)
-    })
-  })
+module.exports = {
+  '*.js': [
+    'eslint --fix'
+  ],
+  '*.py': [
+    'python3 -m black'
+  ],
+  '*': () => 'npm run test'
 }
