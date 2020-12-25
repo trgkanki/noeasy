@@ -29,9 +29,11 @@ from .utils import openChangelog
 from .utils import uuid  # duplicate UUID checked here
 from .utils import debugLog  # debug log registered here
 
+from .utils.configrw import getConfig
+
 
 def noEasy(self, *, _old):
-    if self.card.timeTaken() < 1500:
+    if self.card.timeTaken() < getConfig("timeout") * 1000:
         tooltip("Think before pressing space")
         return
     return _old(self)
