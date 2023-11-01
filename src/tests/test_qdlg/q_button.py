@@ -15,7 +15,7 @@
 
 import sys
 from qdlgproxy import QDlg, Text, Button  # type: ignore
-from PyQt5.Qt import QApplication, QMessageBox
+from aqt.qt import QApplication, QMessageBox
 
 
 @QDlg("Test dialog", size=[640, 480])
