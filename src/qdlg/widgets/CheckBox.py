@@ -19,7 +19,7 @@ from ..modelHandler import configureModel
 from .Style import StylableWidget
 from .Shortcutable import Shortcutable
 
-from PyQt5.Qt import QCheckBox
+from aqt.qt import QCheckBox
 
 
 class CheckBox(StylableWidget, Shortcutable):

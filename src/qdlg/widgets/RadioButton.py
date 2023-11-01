@@ -18,7 +18,7 @@ from ..utils import continuationHelper
 from ..modelHandler import configureModel
 from .Style import StylableWidget
 
-from PyQt5.Qt import QRadioButton
+from aqt.qt import QRadioButton
 
 
 class RadioButton(StylableWidget):

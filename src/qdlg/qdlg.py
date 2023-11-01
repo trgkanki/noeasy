@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5.Qt import QDialog, QVBoxLayout, Qt
+from aqt.qt import QDialog, QVBoxLayout, Qt
 
 from .stack import pushQDlgStack, popQDlgStack, qDlgStackGetDialog
 from .utils import addLayoutOrWidget
@@ -31,7 +31,7 @@ def QDlg(title, size=None):
                 onClose(accepted): Function to run on close. Defaults to None.
             """
             dlg = QDialog()
-            dlg.setWindowFlags(dlg.windowFlags() & ~Qt.WindowContextHelpButtonHint)
+            dlg.setWindowFlags(dlg.windowFlags() & ~Qt.WindowType.WindowContextHelpButtonHint)
             dlg.setWindowTitle(title)
 
             layout = QVBoxLayout()
@@ -43,7 +43,7 @@ def QDlg(title, size=None):
             self.constructor(dlg, *args, **kwargs)
             popQDlgStack(self)
 
-            dlg.setWindowModality(Qt.WindowModal)
+            dlg.setWindowModality(Qt.WindowModality.WindowModal)
             if size:
                 dlg.resize(size[0], size[1])
             dlg.show()
